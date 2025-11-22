@@ -13,19 +13,14 @@ A fully functional web application clone of bKash, Bangladesh's leading mobile f
 
 ## 📸 Screenshots
 
-Experience the authentic bkash interface:
+### PIN Entry Screen
+Beautiful pink gradient authentication screen with animated number pad.
 
-![PIN Entry Screen](screenshots/pin-screen.png)
-*Secure PIN authentication with animated number pad*
+### Dashboard
+Balance display, quick actions, and recent transactions at a glance.
 
-![Dashboard](screenshots/dashboard.png)
-*Main dashboard with balance card and quick actions*
-
-![Transactions](screenshots/transactions.png)
-*Complete transaction history with recent activity*
-
-![Send Money](screenshots/send-money.png)
-*Send money feature with recipient and amount input*
+### Send Money
+Seamless money transfer experience with PIN confirmation.
 
 ## ✨ Features
 
