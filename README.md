@@ -11,17 +11,6 @@ A fully functional web application clone of bKash, Bangladesh's leading mobile f
 
 **[View Live Demo](https://tamimtxd.github.io/bkash-web-app/)**
 
-## 📸 Screenshots
-
-### PIN Entry Screen
-Beautiful pink gradient authentication screen with animated number pad.
-
-### Dashboard
-Balance display, quick actions, and recent transactions at a glance.
-
-### Send Money
-Seamless money transfer experience with PIN confirmation.
-
 ## ✨ Features
 
 ### 🔐 Authentication & Security
@@ -230,9 +219,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@YOUR-USERNAME](https://github.com/YOUR-USERNAME)
-- LinkedIn: [Your Profile](https://linkedin.com/in/your-profile)
+**Tamim**
+- GitHub: [@tamimtxd](https://github.com/tamimtxd)
+- LinkedIn: [Tamim](https://linkedin.com/in/tamimtxd)
 
 ## 🙏 Acknowledgments
 
@@ -243,8 +232,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 If you have any questions or run into issues:
-- Open an [issue](https://github.com/YOUR-USERNAME/bkash-web-app/issues)
-- Email: your.email@example.com
+- Open an [issue](https://github.com/tamimtxd/bkash-web-app/issues)
+- Email: tamimmtd@gamil.com
 
 ## ⭐ Show Your Support
 
