@@ -9,18 +9,23 @@ A fully functional web application clone of bKash, Bangladesh's leading mobile f
 
 ## 🌟 Live Demo
 
-**[View Live Demo](https://YOUR-USERNAME.github.io/bkash-web-app/)** *(Update after deployment)*
+**[View Live Demo](https://tamimtxd.github.io/bkash-web-app/)**
 
 ## 📸 Screenshots
 
-### PIN Entry Screen
-Beautiful pink gradient authentication screen with animated number pad.
+Experience the authentic bkash interface:
 
-### Dashboard
-Balance display, quick actions, and recent transactions at a glance.
+![PIN Entry Screen](screenshots/pin-screen.png)
+*Secure PIN authentication with animated number pad*
 
-### Send Money
-Seamless money transfer experience with PIN confirmation.
+![Dashboard](screenshots/dashboard.png)
+*Main dashboard with balance card and quick actions*
+
+![Transactions](screenshots/transactions.png)
+*Complete transaction history with recent activity*
+
+![Send Money](screenshots/send-money.png)
+*Send money feature with recipient and amount input*
 
 ## ✨ Features
 
