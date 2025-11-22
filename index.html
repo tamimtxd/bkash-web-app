@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bKash - Mobile Financial Service</title>
+  <meta name="description" content="bKash - Leading mobile financial service in Bangladesh">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>৳</text></svg>">
+</head>
+<body>
+  <div class="app" id="app">
+    
+    <!-- PIN Screen -->
+    <div class="screen active pin-screen" id="pinScreen">
+      <div class="pin-logo">৳</div>
+      <h1 class="pin-title">Welcome to bKash</h1>
+      <p class="pin-subtitle">Enter your PIN to continue</p>
+      
+      <div class="pin-dots">
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+      </div>
+      
+      <div class="pin-pad">
+        <button class="pin-btn" data-value="1">1</button>
+        <button class="pin-btn" data-value="2">2</button>
+        <button class="pin-btn" data-value="3">3</button>
+        <button class="pin-btn" data-value="4">4</button>
+        <button class="pin-btn" data-value="5">5</button>
+        <button class="pin-btn" data-value="6">6</button>
+        <button class="pin-btn" data-value="7">7</button>
+        <button class="pin-btn" data-value="8">8</button>
+        <button class="pin-btn" data-value="9">9</button>
+        <button class="pin-btn empty"></button>
+        <button class="pin-btn" data-value="0">0</button>
+        <button class="pin-btn" data-value="clear">⌫</button>
+      </div>
+      
+      <div class="pin-error" id="pinError">Incorrect PIN. Please try again.</div>
+    </div>
+
+    <!-- Home/Dashboard Screen -->
+    <div class="screen" id="homeScreen">
+      <div class="header">
+        <div></div>
+        <div class="header-title">bKash</div>
+        <button class="menu-btn">☰</button>
+      </div>
+      
+      <div class="content">
+        <div class="balance-card">
+          <div class="balance-label">Available Balance</div>
+          <div class="balance-amount" id="balanceDisplay">৳0.00</div>
+          <div class="balance-actions">
+            <button class="balance-action-btn" onclick="navigateTo('addMoneyScreen')">Add Money</button>
+            <button class="balance-action-btn" onclick="showTransactionHistory()">Statement</button>
+          </div>
+        </div>
+        
+        <div class="quick-actions">
+          <h2 class="section-title">Quick Actions</h2>
+          <div class="actions-grid">
+            <button class="action-btn" onclick="navigateTo('sendMoneyScreen')">
+              <div class="action-icon">💸</div>
+              <div class="action-label">Send Money</div>
+            </button>
+            <button class="action-btn" onclick="navigateTo('cashOutScreen')">
+              <div class="action-icon">💵</div>
+              <div class="action-label">Cash Out</div>
+            </button>
+            <button class="action-btn" onclick="navigateTo('rechargeScreen')">
+              <div class="action-icon">📱</div>
+              <div class="action-label">Mobile Recharge</div>
+            </button>
+            <button class="action-btn" onclick="navigateTo('paymentScreen')">
+              <div class="action-icon">🛒</div>
+              <div class="action-label">Payment</div>
+            </button>
+            <button class="action-btn" onclick="navigateTo('addMoneyScreen')">
+              <div class="action-icon">➕</div>
+              <div class="action-label">Add Money</div>
+            </button>
+            <button class="action-btn" onclick="showTransactionHistory()">
+              <div class="action-icon">📊</div>
+              <div class="action-label">Statement</div>
+            </button>
+            <button class="action-btn" onclick="navigateTo('savingsScreen')">
+              <div class="action-icon">💰</div>
+              <div class="action-label">Savings</div>
+            </button>
+            <button class="action-btn" onclick="navigateTo('loanScreen')">
+              <div class="action-icon">🏦</div>
+              <div class="action-label">Loan</div>
+            </button>
+          </div>
+        </div>
+        
+        <div class="recent-transactions">
+          <h2 class="section-title">Recent Transactions</h2>
+          <div class="transactions-list" id="recentTransactions">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+      
+      <nav class="bottom-nav">
+        <button class="nav-item active" onclick="navigateTo('homeScreen')">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" onclick="showTransactionHistory()">
+          <span class="nav-icon">📋</span>
+          <span class="nav-label">Transactions</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('offersScreen')">
+          <span class="nav-icon">🎁</span>
+          <span class="nav-label">Offers</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('profileScreen')">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">Profile</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Send Money Screen -->
+    <div class="screen" id="sendMoneyScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Send Money</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <form id="sendMoneyForm">
+            <div class="form-group">
+              <label class="form-label">Recipient Number</label>
+              <input type="tel" class="form-input" placeholder="01XXXXXXXXX" id="sendMoneyRecipient" maxlength="11" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <input type="number" class="form-input" placeholder="0.00" id="sendMoneyAmount" min="1" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Reference (Optional)</label>
+              <input type="text" class="form-input" placeholder="Add a note" id="sendMoneyReference">
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Continue</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cash Out Screen -->
+    <div class="screen" id="cashOutScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Cash Out</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <form id="cashOutForm">
+            <div class="form-group">
+              <label class="form-label">Agent Number</label>
+              <input type="tel" class="form-input" placeholder="01XXXXXXXXX" id="cashOutAgent" maxlength="11" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <input type="number" class="form-input" placeholder="0.00" id="cashOutAmount" min="1" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Fee: <span id="cashOutFee">৳0.00</span></label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Continue</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Recharge Screen -->
+    <div class="screen" id="rechargeScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Mobile Recharge</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <form id="rechargeForm">
+            <div class="form-group">
+              <label class="form-label">Operator</label>
+              <select class="form-select" id="rechargeOperator" required>
+                <option value="">Select Operator</option>
+                <option value="Grameenphone">Grameenphone</option>
+                <option value="Robi">Robi</option>
+                <option value="Banglalink">Banglalink</option>
+                <option value="Teletalk">Teletalk</option>
+                <option value="Airtel">Airtel</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Mobile Number</label>
+              <input type="tel" class="form-input" placeholder="01XXXXXXXXX" id="rechargeNumber" maxlength="11" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <select class="form-select" id="rechargeAmount" required>
+                <option value="">Select Amount</option>
+                <option value="10">৳10</option>
+                <option value="20">৳20</option>
+                <option value="50">৳50</option>
+                <option value="100">৳100</option>
+                <option value="200">৳200</option>
+                <option value="500">৳500</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Recharge Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Screen -->
+    <div class="screen" id="paymentScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Make Payment</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <form id="paymentForm">
+            <div class="form-group">
+              <label class="form-label">Merchant</label>
+              <select class="form-select" id="paymentMerchant" required>
+                <option value="">Select Merchant</option>
+                <option value="Daraz">Daraz</option>
+                <option value="FoodPanda">FoodPanda</option>
+                <option value="Pathao">Pathao</option>
+                <option value="Shwapno">Shwapno</option>
+                <option value="Star Cineplex">Star Cineplex</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Invoice/Bill Number</label>
+              <input type="text" class="form-input" placeholder="Enter invoice number" id="paymentInvoice" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <input type="number" class="form-input" placeholder="0.00" id="paymentAmount" min="1" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Pay Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Money Screen -->
+    <div class="screen" id="addMoneyScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Add Money</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <form id="addMoneyForm">
+            <div class="form-group">
+              <label class="form-label">Source</label>
+              <select class="form-select" id="addMoneySource" required>
+                <option value="">Select Source</option>
+                <option value="Bank">From Bank Account</option>
+                <option value="Card">Debit/Credit Card</option>
+                <option value="Agent">From Agent</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Amount</label>
+              <input type="number" class="form-input" placeholder="0.00" id="addMoneyAmount" min="1" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Add Money</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transaction History Screen -->
+    <div class="screen" id="transactionsScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Transactions</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="form-group">
+          <select class="form-select" id="transactionFilter" onchange="filterTransactions()">
+            <option value="all">All Transactions</option>
+            <option value="send">Send Money</option>
+            <option value="receive">Receive Money</option>
+            <option value="cashout">Cash Out</option>
+            <option value="recharge">Mobile Recharge</option>
+            <option value="payment">Payment</option>
+            <option value="addmoney">Add Money</option>
+          </select>
+        </div>
+        
+        <div class="transactions-list" id="allTransactions">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      
+      <nav class="bottom-nav">
+        <button class="nav-item" onclick="navigateTo('homeScreen')">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item active" onclick="showTransactionHistory()">
+          <span class="nav-icon">📋</span>
+          <span class="nav-label">Transactions</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('offersScreen')">
+          <span class="nav-icon">🎁</span>
+          <span class="nav-label">Offers</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('profileScreen')">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">Profile</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Profile Screen -->
+    <div class="screen" id="profileScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Profile</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF4081, #E2136E); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; margin-bottom: 1rem;">👤</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;" id="profileName">Demo User</h3>
+            <p style="color: #6B7280; font-size: 0.875rem;" id="profileNumber">01XXXXXXXXX</p>
+          </div>
+          
+          <div style="border-top: 1px solid #E5E7EB; padding-top: 1rem;">
+            <div style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #E5E7EB;">
+              <span style="color: #6B7280;">Account Type</span>
+              <span style="font-weight: 600;">Personal</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #E5E7EB;">
+              <span style="color: #6B7280;">Verification Status</span>
+              <span style="font-weight: 600; color: #10B981;">✓ Verified</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #E5E7EB;">
+              <span style="color: #6B7280;">Daily Limit</span>
+              <span style="font-weight: 600;">৳25,000</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 1rem 0;">
+              <span style="color: #6B7280;">Monthly Limit</span>
+              <span style="font-weight: 600;">৳200,000</span>
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-secondary btn-block" onclick="logout()">Logout</button>
+      </div>
+      
+      <nav class="bottom-nav">
+        <button class="nav-item" onclick="navigateTo('homeScreen')">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" onclick="showTransactionHistory()">
+          <span class="nav-icon">📋</span>
+          <span class="nav-label">Transactions</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('offersScreen')">
+          <span class="nav-icon">🎁</span>
+          <span class="nav-label">Offers</span>
+        </button>
+        <button class="nav-item active" onclick="navigateTo('profileScreen')">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">Profile</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Offers Screen -->
+    <div class="screen" id="offersScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Offers</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <div style="text-align: center; padding: 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.5;">🎁</div>
+            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Exciting Offers Coming Soon!</h3>
+            <p style="color: #6B7280;">Check back later for cashback and discount offers</p>
+          </div>
+        </div>
+      </div>
+      
+      <nav class="bottom-nav">
+        <button class="nav-item" onclick="navigateTo('homeScreen')">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" onclick="showTransactionHistory()">
+          <span class="nav-icon">📋</span>
+          <span class="nav-label">Transactions</span>
+        </button>
+        <button class="nav-item active" onclick="navigateTo('offersScreen')">
+          <span class="nav-icon">🎁</span>
+          <span class="nav-label">Offers</span>
+        </button>
+        <button class="nav-item" onclick="navigateTo('profileScreen')">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">Profile</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Savings Screen (Placeholder) -->
+    <div class="screen" id="savingsScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Savings</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <div style="text-align: center; padding: 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.5;">💰</div>
+            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Start Saving Today</h3>
+            <p style="color: #6B7280;">Open a savings account with partner banks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loan Screen (Placeholder) -->
+    <div class="screen" id="loanScreen">
+      <div class="header">
+        <button class="back-btn" onclick="navigateTo('homeScreen')">←</button>
+        <div class="header-title">Loan</div>
+        <div></div>
+      </div>
+      
+      <div class="content">
+        <div class="card">
+          <div style="text-align: center; padding: 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.5;">🏦</div>
+            <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">Instant Micro Loans</h3>
+            <p style="color: #6B7280;">Apply for loans based on your transaction history</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIN Confirmation Modal -->
+  <div class="modal" id="pinModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enter PIN</h3>
+        <button class="modal-close" onclick="closePinModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">PIN</label>
+          <input type="password" class="form-input" placeholder="Enter your PIN" id="confirmPin" maxlength="4">
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="confirmTransaction()">Confirm</button>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <div class="notification-icon">✓</div>
+    <div class="notification-message" id="notificationMessage">Success!</div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

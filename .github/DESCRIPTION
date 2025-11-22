@@ -1,0 +1,19 @@
+# bKash Web App Clone
+
+A premium web application demonstrating bKash's mobile financial service features.
+
+## Quick Start
+
+1. Open `index.html` in your browser
+2. Enter PIN: 1234
+3. Explore all features!
+
+## Features
+- Send Money
+- Cash Out
+- Mobile Recharge  
+- Payment
+- Add Money
+- Transaction History
+
+Built with HTML, CSS, and JavaScript.
