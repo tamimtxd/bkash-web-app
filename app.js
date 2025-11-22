@@ -80,6 +80,38 @@ function setupPinPad() {
             }
         });
     });
+
+    // Add keyboard support for PIN entry (desktop)
+    document.addEventListener('keydown', (e) => {
+        // Only handle keyboard on PIN screen
+        const pinScreen = document.getElementById('pinScreen');
+        if (!pinScreen || !pinScreen.classList.contains('active')) return;
+
+        // Handle number keys (0-9)
+        if (e.key >= '0' && e.key <= '9') {
+            e.preventDefault();
+            if (appState.currentPin.length < 4) {
+                appState.currentPin += e.key;
+                updatePinDots();
+
+                // Auto-submit when 4 digits entered
+                if (appState.currentPin.length === 4) {
+                    setTimeout(() => validatePin(), 300);
+                }
+            }
+        }
+        // Handle Backspace key
+        else if (e.key === 'Backspace') {
+            e.preventDefault();
+            appState.currentPin = appState.currentPin.slice(0, -1);
+            updatePinDots();
+        }
+        // Handle Enter key (submit if 4 digits)
+        else if (e.key === 'Enter' && appState.currentPin.length === 4) {
+            e.preventDefault();
+            validatePin();
+        }
+    });
 }
 
 function updatePinDots() {
