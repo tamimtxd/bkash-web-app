@@ -163,26 +163,12 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
-.back-btn:active,
-.menu-btn:active {
-    transform: scale(0.95);
-}
-
-/* ========== CONTENT ========== */
-.content {
-    padding: var(--spacing-lg);
-    padding-bottom: calc(80px + var(--spacing-lg));
-}
-
-/* ========== PIN SCREEN ========== */
-.pin-screen {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--bkash-gradient);
-    padding: var(--spacing-xl);
-    height: 100vh;
-    overflow: hidden;
+align-items: center;
+justify-content: center;
+background: var(--bkash-gradient);
+padding: var(--spacing-xl);
+height: 100vh;
+overflow: hidden;
 }
 
 .pin-screen.active {
