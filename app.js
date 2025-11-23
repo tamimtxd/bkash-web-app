@@ -38,9 +38,6 @@ function initializeApp() {
     updateBalanceDisplay();
     updateRecentTransactions();
     updateProfileDisplay();
-
-    // Setup menu
-    setupMenu();
 }
 
 // ========== LOCAL STORAGE ==========
@@ -671,61 +668,3 @@ function generateSampleTransactions() {
     appState.transactions = sampleTransactions;
     saveUserData();
 }
-
-// ========== MENU FUNCTIONS ==========
-
-function setupMenu() {
-    const menuBtn = document.querySelector('.menu-btn');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', openMenu);
-    }
-    
-    // Close menu when clicking overlay
-    const menuOverlay = document.querySelector('.menu-overlay');
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', closeMenu);
-    }
-}
-
-function openMenu() {
-    const menuModal = document.getElementById('menuModal');
-    menuModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeMenu() {
-    const menuModal = document.getElementById('menuModal');
-    menuModal.classList.remove('show');
-    document.body.style.overflow = '';
-}
-
-function logout() {
-    if (confirm('Are you sure you want to logout?')) {
-        // Clear current PIN
-        appState.currentPin = '';
-        
-        // Close menu
-        closeMenu();
-        
-        // Navigate to PIN screen
-        navigateTo('pinScreen');
-        
-        // Show notification
-        showNotification('Logged out successfully', 'success');
-    }
-}
-
-// Setup menu button
-document.addEventListener('DOMContentLoaded', () =\u003e {
-    const menuBtn = document.querySelector('.menu-btn');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', openMenu);
-    }
-    
-    // Close menu when clicking overlay
-    const menuOverlay = document.querySelector('.menu-overlay');
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', closeMenu);
-    }
-});
-
