@@ -670,6 +670,20 @@ function generateSampleTransactions() {
 }
 
 // ========== MENU FUNCTIONS ==========
+
+function setupMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', openMenu);
+    }
+    
+    // Close menu when clicking overlay
+    const menuOverlay = document.querySelector('.menu-overlay');
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+    }
+}
+
 function openMenu() {
     const menuModal = document.getElementById('menuModal');
     menuModal.classList.add('show');
