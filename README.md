@@ -9,11 +9,7 @@ A fully functional web application clone of bKash, Bangladesh's leading mobile f
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## 🌟 Live Demo
-- **Cash Out** - Withdraw money from agents with automatic fee calculation (1.85%)
-- **Mobile Recharge** - Top up for all major Bangladesh operators
-- **Payment** - Pay bills and merchants seamlessly
-- **Add Money** - Deposit from bank accounts, cards, or agents
-- **Transaction History** - Complete transaction log with filtering
+- **Live Demo**: [View Live Demo](https://tamimtxd.github.io/bkash-web-app/)
 
 ### 🎨 Design Excellence
 - **Authentic bKash Branding** - Signature pink (#E2136E) color scheme
