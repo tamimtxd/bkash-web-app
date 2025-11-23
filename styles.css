@@ -136,64 +136,6 @@ body {
 }
 
 .header-title {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    flex: 1;
-    text-align: center;
-}
-
-.back-btn,
-.menu-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: var(--white);
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-xl);
-    transition: background var(--transition-fast);
-}
-
-.back-btn:hover,
-.menu-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.back-btn:active,
-.menu-btn:active {
-    transform: scale(0.95);
-}
-
-/* ========== CONTENT ========== */
-.content {
-    padding: var(--spacing-lg);
-    padding-bottom: 120px;
-}
-
-/* ========== PIN SCREEN ========== */
-.pin-screen {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--bkash-gradient);
-    padding: var(--spacing-xl);
-    height: 100vh;
-    overflow: hidden;
-}
-
-.pin-screen.active {
-    display: flex !important;
-}
-
-.pin-logo {
-    width: 120px;
-    height: 120px;
-    background: var(--white);
-    border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
     justify-content: center;
