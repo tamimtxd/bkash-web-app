@@ -668,3 +668,74 @@ function generateSampleTransactions() {
     appState.transactions = sampleTransactions;
     saveUserData();
 }
+
+// ========== MENU FUNCTIONALITY ==========
+function initializeMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const menuModal = document.getElementById('menuModal');
+    const menuCloseBtn = document.getElementById('menuCloseBtn');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    
+    if (menuBtn && menuModal) {
+        menuBtn.addEventListener('click', function() {
+            menuModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (menuCloseBtn && menuModal) {
+        menuCloseBtn.addEventListener('click', function() {
+            menuModal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    if (menuOverlay && menuModal) {
+        menuOverlay.addEventListener('click', function() {
+            menuModal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Menu item handlers
+    const menuHistory = document.getElementById('menuHistory');
+    if (menuHistory) {
+        menuHistory.addEventListener('click', function() {
+            menuModal.classList.remove('show');
+            document.body.style.overflow = '';
+            showTransactionHistory();
+        });
+    }
+    
+    const menuHelp = document.getElementById('menuHelp');
+    if (menuHelp) {
+        menuHelp.addEventListener('click', function() {
+            alert('Help & Support feature coming soon!');
+        });
+    }
+    
+    const menuChangePin = document.getElementById('menuChangePin');
+    if (menuChangePin) {
+        menuChangePin.addEventListener('click', function() {
+            alert('Change PIN feature coming soon!');
+        });
+    }
+    
+    const menuLogout = document.getElementById('menuLogout');
+    if (menuLogout) {
+        menuLogout.addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                appState.currentPin = '';
+                menuModal.classList.remove('show');
+                document.body.style.overflow = '';
+                navigateTo('pinScreen');
+                showNotification('Logged out successfully', 'success');
+            }
+        });
+    }
+}
+
+// Call initializeMenu when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializeMenu();
+});
