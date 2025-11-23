@@ -217,7 +217,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions or run into issues:
 - Open an [issue](https://github.com/tamimtxd/bkash-web-app/issues)
-- Email: tamimmtd@gamil.com
+- Email: tamimmtd@gmail.com
 
 ## ⭐ Show Your Support
 
