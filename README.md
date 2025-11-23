@@ -1,7 +1,6 @@
 # bKash Web App Clone
 
-A fully functional web application clone of bKash, Bangladesh's leading mobile financial service. Built with vanilla HTML, CSS, and JavaScript to demonstrate modern web development best practices and deliver an authentic user experience.
-- Supports keyboard entry for PIN on desktop (digits 0‑9, Backspace, Enter).
+A web-based clone of bKash mobile financial service built with vanilla HTML, CSS, and JavaScript.
 
 ![bKash Logo](https://img.shields.io/badge/bKash-E2136E?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTAgMThjLTQuNDEgMC04LTMuNTktOC04czMuNTktOCA4LTggOCAzLjU5IDggOC0zLjU5IDgtOCA4eiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -9,19 +8,7 @@ A fully functional web application clone of bKash, Bangladesh's leading mobile f
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## 🌟 Live Demo
-- **Live Demo**: [View Live Demo](https://tamimtxd.github.io/bkash-web-app/)
-
-### 🎨 Design Excellence
-- **Authentic bKash Branding** - Signature pink (#E2136E) color scheme
-- **Modern UI/UX** - Card-based layout with smooth animations
-- **Responsive Design** - Mobile-first approach, works on all devices
-- **Premium Feel** - Gradient backgrounds, glassmorphism effects
-- **Micro-interactions** - Loading states, success animations, hover effects
-
-### 📱 Responsive Breakpoints
-- **Mobile**: 320px - 480px (primary target)
-- **Tablet**: 481px - 768px  
-- **Desktop**: 769px+ (centered layout)
+[View Live Demo](https://tamimtxd.github.io/bkash-web-app/)
 
 ## 🚀 Quick Start
 
