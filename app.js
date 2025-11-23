@@ -680,18 +680,6 @@ function setupMenu() {
         menuBtn.addEventListener('click', openMenu);
     }
     
-    const menuOverlay = document.querySelector('.menu-overlay');
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', closeMenu);
-    }
-}
-
-function setupMenu() {
-    const menuBtn = document.querySelector('.menu-btn');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', openMenu);
-    }
-    
     // Close menu when clicking overlay
     const menuOverlay = document.querySelector('.menu-overlay');
     if (menuOverlay) {
