@@ -902,3 +902,29 @@ body {
 .empty-state-text {
     font-size: var(--font-size-base);
 }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 480px) {
+    .app {
+        max-width: 100%;
+    }
+
+    .bottom-nav {
+        max-width: 100%;
+    }
+
+    .actions-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .modal-content {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 481px) {
+    .content {
+        padding: var(--spacing-xl);
+        padding-bottom: 150px;
+    }
+}
